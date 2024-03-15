@@ -33,7 +33,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: "https://github.com/asemhostaway/invo.git#master/docker/8.1"
+          context: "https://github.com/asemhostaway/invo.git#master:docker/8.1"
           push: false # Since we dont have ECR
           tags: user/app:latest
 
