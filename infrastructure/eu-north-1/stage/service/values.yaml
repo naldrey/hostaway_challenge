@@ -1,0 +1,41 @@
+albServiceMultiStack:
+  namespace: nahuel
+  services:
+    - name: golang
+      image: 594081136085.dkr.ecr.eu-north-1.amazonaws.com/nahuel-challenge:docker_gs_requested_url_prod-0.0.1
+      albHealthCheck: /
+      path: /api/v1
+      ports:
+        port: 80
+        targetPort: 80
+      resources:
+        limits:
+          memory: "100Mi"
+          cpu: "200m"
+        requests:
+          memory: "50Mi"
+          cpu: "100m"
+      hpa:
+        minReplicas: 2
+        maxReplicas: 4
+        targetCPUUtilizationPercentage: 60
+        targetMemoryUtilizationPercentage: 60
+    - name: php
+      image: 594081136085.dkr.ecr.eu-north-1.amazonaws.com/nahuel-challenge:docker_php_apache_prod-0.0.2
+      albHealthCheck: /
+      path: /api/v2
+      ports:
+        port: 80
+        targetPort: 80
+      resources:
+        limits:
+          memory: "100Mi"
+          cpu: "200m"
+        requests:
+          memory: "50Mi"
+          cpu: "100m"
+      hpa:
+        minReplicas: 2
+        maxReplicas: 5
+        targetCPUUtilizationPercentage: 60
+        targetMemoryUtilizationPercentage: ""
