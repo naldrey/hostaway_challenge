@@ -23,6 +23,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: docker/Dockerfile
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@0e613a0980cbf65ed5b322eb7a1e075d28913a83
         with:
@@ -38,7 +42,7 @@ jobs:
         id: build-image
         uses: docker/build-push-action@v5
         with:
-          context: "https://github.com/asemhostaway/invo.git#master:docker/8.1"
+          context: "docker/"
           push: true
           tags: XXXXXXXXX..dkr.ecr.eu-north-1.amazonaws.com/invo-sevice:${{ github.run_id }}
 
