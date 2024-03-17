@@ -1,6 +1,6 @@
 # hostaway_challenge
 
-## High Level Arquitecture Diagram
+## High Level Architecture Diagram
 
 The architecture is structured around ECS and RDS, utilizing Terraform to establish the runtime, database, and essential resources like VPC, CDN, ALB, ECR, and Route53 Records. While the ECS service definition is in place, the task definition is not yet established, as it will be deployed on AWS through the GitHub actions outlined in the CI/CD pipeline section
 
