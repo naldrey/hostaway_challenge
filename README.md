@@ -12,8 +12,8 @@ The CI/CD pipeline is developed using GitHub Actions, which triggers upon commit
 ![image](https://github.com/naldrey/hostaway_challenge/assets/53922947/a4241963-8e6e-4cc3-abc5-2c10d9e68e8f)
 
 ## TO DO
-Improve testing with docker-compose
-Enhance build and push action
+- Improve testing with docker-compose
+- Enhance build and push action
   - Enabling cache
   - Multiarch build
 
